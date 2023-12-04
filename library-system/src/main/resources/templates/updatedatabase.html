@@ -14,14 +14,10 @@
     <hr>
     <h2>Update Data</h2>
 
-    <!-- the /saveData link goes to the corresponding handler in controller and
-            returns the information in the form for editing -->
     <form action="#" th:action="@{/saveData}" th:object="${books}" method="POST">
 
-        <!-- Add hidden form field to handle update -->
+
         <input type="hidden" th:field="*{id}" />
-        <!-- The first time this page loads it calls the getters method and
-            pre-populates the input field -->
 
         <input type="text" th:field="*{book}" class="form-control mb-4 col-4">
 

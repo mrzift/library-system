@@ -14,8 +14,7 @@
   <h2>Add Data</h2>
 
   <form action="#" th:action="@{/saveData}" th:object="${books}" method="POST">
-    <!-- action="@{/saveData}--reference link is provided here -->
-    <!-- *{}-- we use this to represent attribute of MasterDb table -->
+
     <input type="text" th:field="*{book}" placeholder="Enter book here" class="form-control mb-4 col-4">
     <!-- bootstrap css class -->
     <input type="text" th:field="*{author}" placeholder="Enter author here" class="form-control mb-4 col-4">

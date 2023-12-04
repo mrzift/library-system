@@ -25,14 +25,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each ="books : ${listBooks}"><!-- iterating list of masterdb -->
+        <tr th:each ="books : ${listBooks}"><!-- iterating list of books -->
             <td th:text="${books.name}"></td>
             <td th:text="${books.author}"></td>
             <td th:text="${books.publisher}"></td>
             <td th:text="${books.year}"></td>
             <td> <a th:href="@{/showFormForUpdate/{id}(id=${books.id})}" class="btn btn-primary">Update</a></td>
-            <!--  we bind the master_db.id to formForUpdate id -->
-            <td> <a th:href="@{/deleteData/{id}(id=${books.id})}" class="btn btn-danger">Delete</a></td>
         </tr>
         </tbody>
     </table>

@@ -20,16 +20,15 @@ public class LibraryController {
         model.addAttribute("listBooks", libraryService.getAllBooks());
         return "index";
     }
-    @RequestMapping("/showNewDataForm") // addNewData handler. takes care of adding new entries.
+    @RequestMapping("/showNewDataForm")
     public String showNewDataForm(Model model) {
-        // create model attribute to bind form data
         Books books = new Books();
         model.addAttribute("books", books);
         return "newdataform";
     }
 
 
-    @PostMapping("/saveData") // method handler to save data
+    @PostMapping("/saveData")
     public String saveData(@ModelAttribute("books") Books books) {
         libraryService.addData(books);
         return "redirect:/";  // redirecting to the homepage.
@@ -39,9 +38,7 @@ public class LibraryController {
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable( value = "id") long id, Model model) {
 
-
         Books books = libraryService.getDataById(id);
-
 
         model.addAttribute("books", books);
         return "updatedatabase";
