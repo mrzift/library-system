@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div align="center" class="container my-2">
+    <h1>Books Database</h1>
+    <!-- creating a Button to add new data  -->
+    <a th:href = "@{/showNewDataForm}" class="btn btn-primary btn-sm mb-3"> Add New Data </a>
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each ="books : ${listBooks}"><!-- iterating list of masterdb -->
+            <td th:text="${books.name}"></td>
+            <td th:text="${books.author}"></td>
+            <td th:text="${books.publisher}"></td>
+            <td th:text="${books.year}"></td>
+            <td> <a th:href="@{/showFormForUpdate/{id}(id=${books.id})}" class="btn btn-primary">Update</a></td>
+            <!--  we bind the master_db.id to formForUpdate id -->
+            <td> <a th:href="@{/deleteData/{id}(id=${books.id})}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
